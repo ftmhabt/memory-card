@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Randomize from "./Randomize";
+import Deck from "./deck";
 
 export default function GetCards() {
   const [allCards, setAllCards] = useState([]);
@@ -31,6 +31,6 @@ export default function GetCards() {
   }, []);
 
   return (
-    <div>{isLoading ? <p>Loading...</p> : <Randomize cards={allCards} />}</div>
+    <div>{isLoading ? <p>Loading...</p> : <Deck cards={allCards} />}</div>
   );
 }
