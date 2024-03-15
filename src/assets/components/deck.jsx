@@ -23,6 +23,9 @@ export default function Deck({ cards }) {
   }
 
   function addToArray(id) {
+    if (lose) {
+      return;
+    }
     if (count < 9) {
       if (clicked.includes(id)) {
         setLose(true);
@@ -36,7 +39,7 @@ export default function Deck({ cards }) {
   }
 
   return (
-    <div>
+    <div className="deck">
       {randomize().map((cat) => (
         <img
           src={cat.url}

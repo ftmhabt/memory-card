@@ -1,4 +1,19 @@
 img{
   width: 90px;
-  height: auto;
+  height: 90px;
+}
+
+.deck{
+  background-color: lightpink;
+  max-width: 600px;
+  margin: 10rem auto;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.deck>*{
+  flex: 1;
+  border-radius: 1rem;
 }
