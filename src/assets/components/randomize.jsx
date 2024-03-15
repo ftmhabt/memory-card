@@ -1,28 +1,28 @@
-import GetCards from "./getCards";
-
-export default function Randomize() {
-  let allcats = GetCards();
-
-  console.table(allcats);
+export default function Randomize({ cards }) {
   let arr = [];
-
+  let clicked = [];
   while (arr.length < 5) {
-    let r = Math.floor(Math.random() * 10) + 1;
+    let r = Math.floor(Math.random() * 10);
     if (arr.indexOf(r) === -1) arr.push(r);
   }
 
-  console.table(arr);
-
-  let randomCats=[];
+  let randomCats = [];
   for (let i = 0; i < arr.length; i++) {
-    randomCats.push(allcats[arr[i]]);
+    randomCats.push(cards[arr[i]]);
   }
 
-  console.table(randomCats);
+  function addToArray(id) {
+    if (clicked.includes(id)) {
+    //   <Lose />
+    } else {
+      clicked.push(id);
+    }
+  }
+
   return (
     <div>
-      {randomCats.map((cat, index) => (
-        <img src={cat} alt="" key={index} />
+      {randomCats.map((cat) => (
+        <img src={cat.url} alt="" key={cat.id}  onClick={()=>addToArray(cat.id)} />
       ))}
     </div>
   );
